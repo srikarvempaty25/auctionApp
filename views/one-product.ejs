@@ -1,0 +1,54 @@
+<%- include('includes/header') %>
+
+<body>
+    <%- include('includes/navbar') %>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="<%= product.imageUrl %>" class="img-fluid" alt="<%= product.name %>">
+            </div>
+            <div class="col-md-6">
+                <h1 class="display-4"><%= product.name %></h1>
+                <p class="lead">Category: <%= product.category %></p>
+                <hr class="my-4">
+                <p>Price: $<%= product.price %></p>
+                <p>Start Price: $<%= product.startPrice %></p>
+                <p>Current Bid: $<%= product.currentBid %></p>
+                <p>Description: <%= product.description %></p>
+                <% if(isLoggedIn){ %>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#bidModal">Place a Bid</button>
+                <% } else{ %>
+                    <a href="/user-login" method="GET">Login to place bid</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bid Modal -->
+    <div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="bidModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="/bid-on-product/<%= product.id %>" method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bidModalLabel">Place Your Bid</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="bidValue">Bid Amount</label>
+                            <input type="number" class="form-control" id="bidAmount" name="bidValue" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit Bid</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+<%- include('includes/footer') %>

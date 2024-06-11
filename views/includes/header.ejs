@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (typeof pageTitle !== 'undefined') { %>
+        <title><%- pageTitle %></title>
+    <% } else { %>
+        <title>Auction Site</title>
+    <% } %>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .carousel-image {
+            height: 400px; /* Set a fixed height */
+            width: 100%; /* Make sure the width is 100% */
+            object-fit: contain; 
+        }
+        .card-image {
+        height: 200px; /* Set a fixed height for the images */
+        object-fit: cover; /* Ensure the images cover the area without distortion */
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+    </style>
+</head>

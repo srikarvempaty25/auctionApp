@@ -1,0 +1,45 @@
+<%- include('includes/header') %>
+<body>
+    <%- include('includes/navbar') %>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Add Product</h2>
+        <form action="/add-product" method="POST">
+            <div class="form-group">
+                <label for="productName">Product Name:</label>
+                <input type="text" class="form-control" id="productName" name="productName" required>
+            </div>
+            <div class="form-group">
+                <label for="productPrice">Price:</label>
+                <input type="number" step="0.01" class="form-control" id="productPrice" name="productPrice" required>
+            </div>
+            <div class="form-group">
+                <label for="startPrice">Start Price:</label>
+                <input type="number" step="0.01" class="form-control" id="startPrice" name="startPrice" required>
+            </div>
+            <div class="form-group">
+                <label for="currentBid">Current Bid:</label>
+                <input type="number" step="0.01" class="form-control" id="currentBid" name="currentBid" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select class="form-control" id="category" name="category" required>
+                    <option value="">Select category...</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Books">Books</option>
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="productDescription">Description:</label>
+                <textarea class="form-control" id="productDescription" name="productDescription" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image URL:</label>
+                <input type="url" class="form-control" id="imageUrl" name="imageUrl" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+<%- include('includes/footer') %>

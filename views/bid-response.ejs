@@ -1,0 +1,21 @@
+<%- include('includes/header') %>
+
+<body>
+    <%- include('includes/navbar') %>
+
+    <div class="container mt-5">
+        <% if (bidPlaced) { %>
+            <div class="alert alert-success" role="alert">
+                Bid successfully placed.
+            </div>
+        <% } %>
+
+        <% if (bidFailed) { %>
+            <div class="alert alert-danger" role="alert">
+                Bid failed: Bid value is lower than the current highest bid.
+            </div>
+        <% } %>
+    </div>
+
+<%- include('includes/footer') %>
+

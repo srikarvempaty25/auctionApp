@@ -1,0 +1,36 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">AuctionSite</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="/" class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/display-product">Auctions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Categories</a>
+            </li>
+            <% if(isLoggedIn) { %>
+                <li class="nav-item">
+                    <a href="/add-product" method="GET" class="nav-link" href="#">Add Product</a>
+                </li>
+            <% } %>
+            <% if(!isLoggedIn) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user-login" method="GET">Login</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item">
+                    <form action="/user-logout" method="POST">
+                        <button type="submit" class="nav-link">Logout</button>
+                    </form>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>
