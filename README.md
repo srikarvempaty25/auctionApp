@@ -1,0 +1,1 @@
+An auction app built with node.js, express.js, ejs templating, bootstrap, html and css using MySQL as a database and sequelize as the ORM. Also implements and stores sessions and provides authentication.
